@@ -1,0 +1,53 @@
+﻿@using E_TICARET_2023.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+   
+
+    <div class="row">
+        <section class="col-md-3" aria-labelledby="gettingStartedTitle">
+            <h2 id="gettingStartedTitle">Kategoriler</h2>
+
+            <ul>
+                @foreach (var item in (List<Kategoriler>)ViewBag.KategoriListesi)
+                {
+                    <li>
+                        @item.KategoriAdi
+                    </li>
+                }
+            </ul>
+          
+        </section>
+        <section class="col-md-9" aria-labelledby="librariesTitle">
+            <h2 id="librariesTitle">Ürün Bilgileri</h2>
+            <div class="row">
+                @foreach (var item in (List<Ürünler>)ViewBag.UrunListesi)
+                 {
+                    <div class="col-md-4" style="border:1px solid">@*//yan yana 3 ürün gelsin*@
+                        <h5>@item.UrunAdi</h5>
+                      
+                        <div>
+                            <img src="~/Resim/@(item.UrunId).jpg" width="100" />
+                        </div>
+                        <br />
+                        <p>
+                            <div>
+                                <a href="/Home/UrunDetay/@item.UrunId" class="btn btn-warning">Ürün Detay</a>
+                            </div>
+                            <div>
+                                <span style="font-size:14px;font-weight:bold;float:right">@item.UrunFiyati TL</span>
+                            </div>
+                        </p>
+                                                     
+                       
+
+                    </div>
+                 }
+
+            </div>
+        </section>
+       
+    </div>
+</main>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_TICARET_2023", "E_TICARET_2023\E_TICARET_2023.csproj", "{0ACAEBEB-E8A0-4E23-B7F3-EEE6130701D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0ACAEBEB-E8A0-4E23-B7F3-EEE6130701D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ACAEBEB-E8A0-4E23-B7F3-EEE6130701D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ACAEBEB-E8A0-4E23-B7F3-EEE6130701D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ACAEBEB-E8A0-4E23-B7F3-EEE6130701D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {627B88F1-60C4-47F2-8463-9923FC410492}
+	EndGlobalSection
+EndGlobal

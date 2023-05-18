@@ -1,0 +1,56 @@
+﻿@using E_TICARET_2023.Models
+@model Ürünler
+
+@{
+    ViewBag.Title = "UrunDetay";
+}
+
+<h2>UrunDetay</h2>
+
+<main>
+
+
+    <div class="row">
+        <section class="col-md-3" aria-labelledby="gettingStartedTitle">
+            <h2 id="gettingStartedTitle">Kategoriler</h2>
+
+            <ul>
+                @foreach (var item in (List<Kategoriler>)ViewBag.KategoriListesi)
+                {
+                    <li>
+                        @item.KategoriAdi
+                    </li>
+                }
+            </ul>
+
+        </section>
+        <section class="col-md-9" aria-labelledby="librariesTitle">
+            <h2 id="librariesTitle">Ürün Bilgileri</h2>
+
+            <h5>@Model.UrunAdi</h5> @*//Ürün bilgileri alındı*@
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <img src="~/Resim/@(Model.UrunId).jpg" width="100" />
+                </div>
+
+                <div class="col-md-6">
+                    Ürün Fiyatı:<span style="font-size:14px;font-weight:bold;float:right">@Model.UrunFiyati TL</span>
+                    @*//inputlar post edilecek hangi elementler post edilecekse form elenementinin içine alınacak*@
+                    @using (Html.BeginForm("SepeteEkle","Sepet"))
+                    {
+                        @Html.HiddenFor(x=>x.UrunId)
+                        <input type="submit" id="sepetbtn" value="Sepete Ekle" />
+                        <input type="number" id="adet" value="1" />
+                    }
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+</main>
+
