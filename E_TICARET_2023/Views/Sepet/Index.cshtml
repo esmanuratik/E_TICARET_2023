@@ -1,7 +1,63 @@
-﻿
+﻿@model IEnumerable<E_TICARET_2023.Models.Sepet>
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Sepet</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(modelItem => modelItem.Ürünler.UrunAdi)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(modelItem => modelItem.Adet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(modelItem => modelItem.ToplamTutar)
+        </th>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ürünler.UrunAdi)
+            </td>
+            <td>
+                @using (Html.BeginForm("SepetGuncelle", "Sepet"))
+                {
+                    <input type="hidden" name="id" value="@item.SepetId" style="width:50px" />
+                    <input type="number" name="adet" value="@item.Adet" style="width:50px" />
+                    <input type="submit" name="btnGuncelle" value="Güncelle" />
+                }
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToplamTutar)
+            </td>
+            <td>
+                @Html.ActionLink("Sil", "SepetSil", new { id = item.SepetId })
+            </td>
+
+        </tr>
+    }
+        <tr>
+            <th>Toplam</th>
+            <th>@Model.Sum(x => x.Adet)</th>
+            <th>@Model.Sum(x => x.ToplamTutar) TL</th>
+        </tr>
+       <tr>
+           <td>
+               <a href="/Home/Index"" class="btn btn-secondary">Alışverişe devam et</a>
+           </td>
+           <td colspan="3" style="text-align:right;">
+               <a href="/Siparis/SiparisTamamla" class="btn btn-secondary">Alışverişi Tamamla</a>
+           </td>
+       </tr>
+
+    </table>
+   
+
+       
 

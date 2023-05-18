@@ -11,15 +11,20 @@ namespace E_TICARET_2023.Controllers
 {
     public class SepetController : Controller
     {
-        // GET: Sepet
+
+        E_TICARET_2023_MVCNETEntities db = new E_TICARET_2023_MVCNETEntities();
+        
         public ActionResult Index()
         {
-            return View();
+            //Kimin Sepeti kullancı atmalıyım
+            string userId = User.Identity.GetUserId();
+
+            var sepet = db.Sepet.Where(x => x.KullaniciId == userId);
+            return View(db.Sepet.ToList());
         }
         public ActionResult SepeteEkle(int UrunId,int adet)//sepetekle view olmayacak onun yerine sepet ındexin view olacak
         {//sepetin databse de 4 tane bilgisi var onu göndermeliyim.
 
-            E_TICARET_2023_MVCNETEntities db=new E_TICARET_2023_MVCNETEntities();
             string userId=User.Identity.GetUserId(); 
             Ürünler urun=db.Ürünler.Find(UrunId);
 
@@ -40,13 +45,37 @@ namespace E_TICARET_2023.Controllers
             }
             else
             {
-                sepettekiurun.Adet = adet++;
+                sepettekiurun.Adet += adet;
                 sepettekiurun.ToplamTutar=sepettekiurun.Adet * urun.UrunFiyati; 
             }
 
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult SepetGuncelle(int id,int adet)
+        {
+            Sepet sepet = db.Sepet.Find(id);
+            if (sepet == null)
+            {
+                return HttpNotFound();
+            }
+            Ürünler urun = db.Ürünler.Find(sepet.UrunId);
 
+            sepet.Adet = adet;
+            sepet.ToplamTutar=sepet.Adet * urun.UrunFiyati;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult Sepetsil(int id)
+        {
+            Sepet sepet = db.Sepet.Find(id);
+            if (sepet != null)
+            {
+                db.Sepet.Remove(sepet);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
