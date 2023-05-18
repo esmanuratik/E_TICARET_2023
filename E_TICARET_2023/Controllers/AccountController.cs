@@ -481,5 +481,13 @@ namespace E_TICARET_2023.Controllers
             }
         }
         #endregion
+        public ActionResult deneme() 
+        { //login var
+            return View();
+        }
+        public ActionResult deneme2()
+        {//register var
+            return View();
+        }
     }
 }
