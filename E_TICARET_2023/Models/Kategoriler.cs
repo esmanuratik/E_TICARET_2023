@@ -24,7 +24,7 @@ namespace E_TICARET_2023.Models
     
         public int KategoriId { get; set; }
         
-        [Required]       
+        [Required,StringLength(50)]       
         [DisplayName("Kategori Adı")]
         public string KategoriAdi { get; set; }
     

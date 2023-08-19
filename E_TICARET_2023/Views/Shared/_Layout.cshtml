@@ -11,6 +11,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
@@ -25,21 +26,32 @@
                     <li>@Html.ActionLink("AnaSayfa", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Hakkımda", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("İletişim", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Kategoriler", "Index", "Kategoriler", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Ürünler", "Index", "Ürünler", new { area = "" }, new { @class = "nav-link" })</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("admin"))
+                        {
+                            <li>@Html.ActionLink("Kategoriler", "Index", "Kategoriler", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Ürünler", "Index", "Ürünler", new { area = "" }, new { @class = "nav-link" })</li>
+                        }
+
+
+                    }
+
                 </ul>
-                 @Html.Partial("_LoginPartial")
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
+
+    <div class="clearfix"></div>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - E-Ticaret</p>
-        </footer>
     </div>
 
+    <footer class="bottom-0 position-relative" style="float:inline-end; ">
+        <p>&copy; @DateTime.Now.Year - E-Ticaret</p>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

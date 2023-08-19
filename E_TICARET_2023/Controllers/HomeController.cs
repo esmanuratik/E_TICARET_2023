@@ -36,7 +36,22 @@ namespace E_TICARET_2023.Controllers
 
             return View(db.Ürünler.Find(id));
         }
-       
-
+        public ActionResult Kategori(int id)
+        {
+            ViewBag.KategoriListesi = db.Kategoriler.ToList();
+            ViewBag.Kategori = db.Kategoriler.Find(id).KategoriAdi;
+            return View(db.Ürünler.Where(x=>x.KategoriId==id).ToList());
+        }
+        public ActionResult deneme()
+        {
+            //Home-Index
+            return View();
+        }
+        public ActionResult deneme2()
+        {
+            return View();
+        }
+      
+      
     }
 }

@@ -1,0 +1,193 @@
+﻿@using E_TICARET_2023.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>ÜRÜNLER</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/LoginTema/sidebar-01/css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="p-4 pt-5">
+                <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(/LoginTema/sidebar-01/images/logo.jpg);"></a>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Kategoriler</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            @foreach (var item in (List<Kategoriler>)ViewBag.KategoriListesi)
+                            {
+                                <li>
+                                    <a href="#">  @item.KategoriAdi</a>
+
+                                </li>
+                            }
+
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <!--<div class="footer">
+                    <p>-->
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <!--Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script><i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank"></a>-->
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <!--</p>
+                </div>-->
+
+            </div>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <h2 class="mb-4">ÜRÜNLER</h2>
+
+            <section class="col-md-10" aria-labelledby="librariesTitle">
+                <h2 id="librariesTitle">Ürün Bilgileri</h2>
+                <div class="row">
+                    @foreach (var item in (List<Ürünler>)ViewBag.UrunListesi)
+                    {
+                        <div class="card border-warning mb-9" style="width: 20rem;">
+
+                            <h5 class="card-title">@item.UrunAdi</h5>
+                            <img src="~/Resim/@(item.UrunId).jpg" width="100" height="100" />
+
+                            <div class="card-body" style="display:inline-block;">
+                                <a href="/Home/UrunDetay/@item.UrunId" class="btn btn-warning">Ürün Detay</a>
+                                <span style="display:flex; justify-content:right;align-items:flex-end;margin-top:16px; font-size:14px;font-weight:bold;float:right">@item.UrunFiyati TL</span>
+                            </div>
+                        </div>
+                        <!--<div class="col-md-4" style="border:1px solid">-->
+                        @*//yan yana 3 ürün gelsin*@
+                        <!--<h5>@item.UrunAdi</h5>
+
+                            <div>
+                                <img src="~/Resim/@(item.UrunId).jpg" width="100" />
+                            </div>
+                            <br />
+                            <p>
+                                <div>
+                                    <a href="/Home/UrunDetay/@item.UrunId" class="btn btn-warning">Ürün Detay</a>
+                                </div>
+                                <div>
+                                    <span style="font-size:14px;font-weight:bold;float:right">@item.UrunFiyati TL</span>
+                                </div>
+                            </p>
+                        </div>-->
+                    }
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="~/LoginTema/sidebar-01/js/jquery.min.js"></script>
+    <script src="~/LoginTema/sidebar-01/js/popper.js"></script>
+    <script src="~/LoginTema/sidebar-01/js/bootstrap.min.js"></script>
+    <script src="~/LoginTema/sidebar-01/js/main.js"></script>
+</body>
+</html>
+
+
+<main>
+    <div class="row">
+        <section class="col-md-2" aria-labelledby="gettingStartedTitle">
+            <h2 id="gettingStartedTitle">Kategoriler</h2>
+
+            <ul>
+                @foreach (var item in (List<Kategoriler>)ViewBag.KategoriListesi)
+                {
+                    <li>
+                        @item.KategoriAdi
+                    </li>
+                }
+            </ul>
+
+        </section>
+        <section class="col-md-10" aria-labelledby="librariesTitle">
+            <h2 id="librariesTitle">Ürün Bilgileri</h2>
+            <div class="row">
+                @foreach (var item in (List<Ürünler>)ViewBag.UrunListesi)
+                {
+
+
+                    <div class="card border-warning mb-9" style="width: 20rem;">
+
+                        <h5 class="card-title">@item.UrunAdi</h5>
+                        <img src="~/Resim/@(item.UrunId).jpg" width="100" height="100" />
+
+                        <div class="card-body" style="display:inline-block;">
+                            <a href="/Home/UrunDetay/@item.UrunId" class="btn btn-warning">Ürün Detay</a>
+                            <span style="display:flex; justify-content:right;align-items:flex-end;margin-top:16px; font-size:14px;font-weight:bold;float:right">@item.UrunFiyati TL</span>
+                        </div>
+                    </div>
+
+
+
+
+                    <!--<div class="col-md-4" style="border:1px solid">-->
+                    @*//yan yana 3 ürün gelsin*@
+                    <!--<h5>@item.UrunAdi</h5>
+
+                        <div>
+                            <img src="~/Resim/@(item.UrunId).jpg" width="100" />
+                        </div>
+                        <br />
+                        <p>
+                            <div>
+                                <a href="/Home/UrunDetay/@item.UrunId" class="btn btn-warning">Ürün Detay</a>
+                            </div>
+                            <div>
+                                <span style="font-size:14px;font-weight:bold;float:right">@item.UrunFiyati TL</span>
+                            </div>
+                        </p>
+
+
+
+                    </div>-->
+                }
+
+            </div>
+        </section>
+
+    </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+

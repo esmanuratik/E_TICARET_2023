@@ -24,7 +24,7 @@ namespace E_TICARET_2023.Models
         }
     
         public int UrunId { get; set; }
-        [Required]
+        [Required,StringLength(50)]
         [DisplayName("Ürün Adı")]
         public string UrunAdi { get; set; }
         [DisplayName("Kategori")]

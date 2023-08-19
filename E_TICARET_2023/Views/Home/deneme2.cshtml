@@ -1,0 +1,108 @@
+﻿@using E_TICARET_2023.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/LoginTema/sidebar-01/css/style.css">
+
+    <style>
+        #sidebar {
+            position: fixed;
+            top: 74px;
+            bottom: 0;
+            left: 0;
+            width: 250px; /* İhtiyaçlarınıza göre genişliği ayarlayabilirsiniz */
+            background-color: black #f8f9fa; /* Sidebar'ın arka plan rengini istediğiniz renkle değiştirebilirsiniz */
+            overflow-y: auto; /*Eğer sidebar içeriği taşarsa, kaydırma çubuğu görünmesini sağlar
+            z-index: 9999;  Gerekirse z-index değerini ayarlayın*/
+        }
+
+        #content {
+            padding-left: 250px; /* Sidebar genişliği kadar padding sol tarafa ekle */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar" style="">
+            <div class="p-4 pt-5">
+                <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(/LoginTema/sidebar-01/images/logo.jpg);"></a>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Kategoriler</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            @foreach (var item in (List<Kategoriler>)ViewBag.KategoriListesi)
+                            {
+                                <li>
+                                    <a href="#">  @item.KategoriAdi</a>
+
+                                </li>
+                            }
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+        Page Content
+
+        <div id="content" class="p-4 p-md-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
+                </div>
+            </nav>
+            <section class="col-md-12" aria-labelledby="librariesTitle">
+                <h2 id="librariesTitle">Ürün Bilgileri</h2>
+                <div class="row">
+                    @foreach (var item in (List<Ürünler>)ViewBag.UrunListesi)
+                    {
+                        <div class="card border-warning mb-9" style="width: 20rem;">
+
+                            <h5 class="card-title">@item.UrunAdi</h5>
+                            <img src="~/Resim/@(item.UrunId).jpg" width="100" height="100" />
+
+                            <div class="card-body" style="display:inline-block;">
+                                <a href="/Home/UrunDetay/@item.UrunId" class="btn btn-warning">Ürün Detay</a>
+                                <span style="display:flex; justify-content:right;align-items:flex-end;margin-top:16px; font-size:14px;font-weight:bold;float:right">@item.UrunFiyati TL</span>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="~/LoginTema/sidebar-01/js/jquery.min.js"></script>
+    <script src="~/LoginTema/sidebar-01/js/popper.js"></script>
+    <script src="~/LoginTema/sidebar-01/js/bootstrap.min.js"></script>
+    <script src="~/LoginTema/sidebar-01/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

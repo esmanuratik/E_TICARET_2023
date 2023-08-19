@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace E_TICARET_2023.Controllers
 {
+    [Authorize]
     public class SepetController : Controller
     {
 

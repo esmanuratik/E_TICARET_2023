@@ -21,16 +21,11 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="~/LoginTema/login-form-02/css/style.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
 
     <title>@ViewBag.Title</title>
     <style>
-        div {
-            font-family: 'Comic Sans MS' ;
-                
-        }
-        .btn {
-            text-decoration: none;
-        }
+
     </style>
 </head>
 
@@ -85,7 +80,8 @@
                                         <div class="row">
                                             <div class="offset-md-2 col-md-10">
                                                 <input type="submit" value="Giriş Yap" class="btn btn-outline-dark btn-light" />       
-                                                    @Html.ActionLink("Yeni Kullanıcı Olarak Kayıt Ol", "Register", null, new { @class = "btn btn-outline-dark btn-light"})                                               
+                                              @Html.ActionLink("Yeni Kayıt", "Register", null, new {@class = "btn btn-outline-dark btn-light text-decoration-none text-center m-2 p-3 text-dark" })                
+                                               
                                             </div>
                                         </div>
                                         <br />                                   

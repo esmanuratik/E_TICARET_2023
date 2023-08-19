@@ -62,7 +62,9 @@ h2 {
 .half .btn {
   height: 54px;
   padding-left: 30px;
-  padding-right: 30px; }
+  padding-right: 30px;
+  text-decoration:none;
+}
 
 .half .forgot-pass {
   position: relative;

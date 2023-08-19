@@ -50,6 +50,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -175,6 +178,7 @@
     <Compile Include="Controllers\KategorilerController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SepetController.cs" />
+    <Compile Include="Controllers\SiparisController.cs" />
     <Compile Include="Controllers\ÜrünlerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -569,6 +573,15 @@
     <Content Include="Views\Sepet\Index.cshtml" />
     <Content Include="Views\Account\deneme.cshtml" />
     <Content Include="Views\Account\deneme2.cshtml" />
+    <Content Include="Views\Home\deneme.cshtml" />
+    <Content Include="Views\Home\deneme2.cshtml" />
+    <Content Include="Views\Home\Kategori.cshtml" />
+    <Content Include="Views\Siparis\SiparisTamamla.cshtml" />
+    <Content Include="Views\Siparis\Index.cshtml" />
+    <Content Include="Views\Siparis\Tamamlandi.cshtml" />
+    <Content Include="Views\Siparis\Hatali.cshtml" />
+    <Content Include="Views\Home\SideBar.cshtml" />
+    <Content Include="Views\Siparis\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

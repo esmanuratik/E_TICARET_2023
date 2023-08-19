@@ -18,3 +18,10 @@ select,
 textarea {
     max-width: 280px;
 }
+div {
+    font-family: 'Comic Sans MS';
+}
+
+.btn {
+  text-decoration: none;
+    }

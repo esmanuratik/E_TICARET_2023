@@ -11,6 +11,7 @@ using E_TICARET_2023.Models;
 
 namespace E_TICARET_2023.Controllers
 {
+    [Authorize(Roles = "admin")]//Role ne tanımlandıysa o yazıldı database de (Asp.NET RolesTable)
     public class ÜrünlerController : Controller
     {
         private E_TICARET_2023_MVCNETEntities db = new E_TICARET_2023_MVCNETEntities();
