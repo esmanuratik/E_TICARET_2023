@@ -9,45 +9,57 @@
 <style>
     .flex-container {
         display: flex;
+        transition: transform 0.3s ease; /* Geçiş efekti eklemek için */
         flex-wrap: wrap;
         gap: 28px;
-        margin-top:2%;
-        border:1px solid;
-        margin-left:4%;
-        padding:6%;
-        box-sizing:border-box;
+        margin-top: 2%;
+        /* border: 1px solid;*/
+        margin-left: 4%;
+        padding: 6%;
+        box-sizing: border-box;
     }
 
-    .flex-item {
+    .flex-item{
         flex: 1;
         min-width: calc(33.33% - 20px); /* Üç sütunlu düzen için */
         box-sizing: border-box;
-        margin-left:-10px;
+        margin-left: -10px;         
     }
-    #image{
-        width:100px;
-        height:100px;
+
+    #image {
+        width: 100px;
+        height: 100px;
     }
-    #urdetbut{
-        margin-top:2%;
+
+    #urdetbut {
+        margin-top: 2%;
     }
+    .uruns{
+        border:1px solid;
+        padding:2%;
+    }
+
     #sidebar {
         margin-top: -1.2%;
         margin-left: -6%;
-        width: 6%;
-    }
-    .w3-sidebar{
-        width:23%;
-       
+        width: 4.3%;
     }
 
+    .w3-sidebar {
+        width: 23%;
+    }
+    .w3-teal {
+        background-color: rgb(33, 37, 41)!important;
+    }
+  
 
 </style>
+
 
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
 
     <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-    
+
     <h2 id="heading">Kategoriler</h2>
     <ul>
         @foreach (var item in (List<Kategoriler>)ViewBag.KategoriListesi)
@@ -65,49 +77,68 @@
     <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
 </div>
 
-        <div class="col-md-8" id="urun">
-            <div class="flex-container">
-                @foreach (var item in (List<Ürünler>)ViewBag.UrunListesi)
-                {
-                    <div class="flex-item">
-                        <div class="row" @*style="border:1px solid"*@>
-                            <h5>@item.UrunAdi</h5>
-                            <img id="image" src="~/Resim/@(item.UrunId).jpg" />
-                            <br /><br />
-                            <p>
-                                <a href="/Home/UrunDetay/@item.UrunId" class="btn btn-secondary" id="urdetbut">Ürün Detay &raquo;</a>
-                                <span style="font-size:14px;font-weight:bold;">@item.UrunFiyati TL</span>
-                            </p>
-                        </div>
-                    </div>             
 
-                }
+
+<div class="container-fluid" id="urun">
+    <div class="flex-container">
+        @foreach (var item in (List<Ürünler>)ViewBag.UrunListesi)
+        {
+            <div class="flex-item col-md-4">
+                <div class="uruns">
+                    <h5>@item.UrunAdi</h5>
+                    <img id="image" src="~/Resim/@(item.UrunId).jpg" />
+                    <br /><br />
+                    <p>
+                        <a href="/Home/UrunDetay/@item.UrunId" class="btn btn-secondary" onclick="showalert()" id="urdetbut">Ürün Detay &raquo;</a>
+                        <span style="font-size:14px;font-weight:bold;">@item.UrunFiyati TL</span>
+                    </p>
+                </div>
             </div>
-           
-        </div>
+
+        }
+    </div>
+
   
+</div>
+
+
 
 
 
 <script>
     function w3_open() {
         document.getElementById("mySidebar").style.display = "block";
-
+        document.getElementById("urun").style.float = "right";
+        document.getElementById("urun").style.minWidth = "(50% - 20px)";
+        document.getElementById("footer").style.display = "none";
     }
 
     function w3_close() {
         document.getElementById("mySidebar").style.display = "none";
-    }
-    function scrollRight() {
-
-        const kaydirButton = document.getElementById("mySidebar");
-        const kaydirilanDiv = document.getElementById("urun");
-
-        kaydirButton.addEventListener("click", function () {
-            kaydirilanDiv.scrollLeft += 100; // 100 piksel sağa kaydır
-        });
+        document.getElementById("urun").style.float = "left";
+        document.getElementById("footer").style.display = "inline-block";
 
     }
+    function showalert() {
+        alert("Ürün detaylarına yönlendiriliyorsunuz,lütfen tamam butonuna basınız...");
+        
+    }
+
+  
+
+    function toggleLayout() {
+        var anaKutu = document.querySelector('.ana-kutu');
+        if (anaKutu.classList.contains('iki-sutun')) {
+            anaKutu.classList.remove('iki-sutun');
+        } else {
+            anaKutu.classList.add('iki-sutun');
+        }
+    }
+
+   
+
+    
+
 </script>
 
 
