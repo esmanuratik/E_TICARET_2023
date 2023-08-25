@@ -19,8 +19,8 @@ namespace E_TICARET_2023.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+           
+        
             return View();
         }
 

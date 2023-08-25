@@ -1,9 +1,116 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Biz Nasıl Çalışırız...";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <p>Use this area to provide additional information.</p>
+<link href="~/Resim/style.css" rel="stylesheet" />
+
+<style>
+
+    body {
+        background-color: rgb(198, 104, 1);
+    }
+
+    #image {
+        text-align: center;
+        border: 2px solid white;
+        border-radius: 100%;
+        height: 120%;
+        width: 100%;
+        transition: transform 2s ease-in-out;
+    }
+
+    #bilgi {
+        background-color: rgba(255, 255, 255, 0.5); /* Arkaplan rengi ve saydamlık değeri */
+        border: 1px solid #ccc; /* İsteğe bağlı olarak kenarlık ekleyebilirsiniz */
+    }
+    #bilgi:hover{
+        background-color:aliceblue;
+    }
+    #portfoy:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    </style>
+
+<main aria-labelledby="title" class="animated-element">
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 id="title">@ViewBag.Title.</h2>
+
+
+            </div>
+        </div>
+    </div>
+    <br /><br />
+
+    <div class="rotate-image-container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <img src="~/Resim/bilgisayarResmi.png" id="image" class="rotate-image" />
+            </div>
+        </div>
+    </div>
+
+
+
+    <br /><br /><br /><br /><br />
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <p>Merhaba, e-ticaret dünyasına hoş geldiniz! Biz *****, dijital alanda sunduğumuz ürün ve hizmetlerle sizlere en iyi alışveriş deneyimini sunmayı hedefliyoruz.</p>
+
+                <p>Vizyonumuz, alışveriş deneyimini sadece bir işlem değil, özel bir yolculuk olarak görmektir. Müşterilerimizin beklentilerini aşarak, onlara kaliteli ürünler sunmanın yanı sıra unutulmaz bir hizmet deneyimi yaşatmayı amaçlıyoruz.</p>
+
+                <p>**** olarak, en yeni trendleri takip ederek ve güvenilir tedarikçilerle işbirliği yaparak geniş ürün yelpazemizi oluşturuyoruz. Müşterilerimize sunduğumuz ürünlerde kalite ve uygun fiyatı bir araya getirerek, ihtiyaçlarınıza uygun çözümler sunuyoruz.</p>
+
+                <p>Ekip olarak, tutkulu ve yenilikçi bir yaklaşımla çalışıyoruz. Müşteri memnuniyeti bizim için en öncelikli konudur. Sorularınızı yanıtlamaktan, önerilerinizi dinlemekten ve her adımda sizlere yardımcı olmaktan mutluluk duyuyoruz.</p>
+
+                <p>Bizimle alışveriş yaparken güvende olduğunuzu bilmelisiniz. Güvenli ödeme seçenekleri ve gizliliğinizi koruma politikalarımızla, alışveriş deneyiminizin güvenilir ve sorunsuz olduğundan emin olabilirsiniz.</p>
+
+                <p>Sizleri **** ailesine katılmaya davet ediyoruz. Dijital dünyada sizin için en iyi alışveriş deneyimini sunmak için buradayız. Herhangi bir soru, görüş veya öneriniz varsa, lütfen bizimle iletişime geçmekten çekinmeyin.</p>
+
+                <p>Teşekkür ederiz...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <input type="submit" value="DAHA FAZLA BİLGİ EDİN" id="bilgi" />
+                <input type="submit" style="margin:-3px" value="PORTFÖYÜ GÖRÜNTÜLE" id="portfoy"/>
+
+            </div>
+        </div>
+    </div>
+
+  
+
+
+
+
 </main>
+
+<script>
+
+    const rotateImage = document.querySelector('.rotate-image');
+
+    rotateImage.addEventListener('mouseenter', () => {
+        rotateImage.style.animationPlayState = 'running';
+    });
+
+    rotateImage.addEventListener('mouseleave', () => {
+        rotateImage.style.animationPlayState = 'paused';
+    });
+
+    // Sayfa yüklendiğinde animasyonlu öğeyi görünür hale getir
+    window.onload = function () {
+        const animatedElement = document.querySelector('.animated-element');
+        animatedElement.style.opacity = 1;
+    };
+</script>
