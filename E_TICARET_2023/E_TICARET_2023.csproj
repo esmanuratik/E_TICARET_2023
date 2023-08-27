@@ -254,6 +254,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\ContactCss.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -301,6 +302,7 @@
       <LastGenOutput>E_Ticaret.cs</LastGenOutput>
     </Content>
     <Content Include="Resim\bilgisayarResmi.png" />
+    <Content Include="Resim\iletişim.jpg" />
     <Content Include="Resim\style.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />

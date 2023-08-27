@@ -17,13 +17,14 @@
         margin-left: 4%;
         padding: 6%;
         box-sizing: border-box;
+
     }
 
     .flex-item{
         flex: 1;
         min-width: calc(33.33% - 20px); /* Üç sütunlu düzen için */
         box-sizing: border-box;
-        margin-left: -10px;         
+        margin-left: -10px;       
     }
 
     #image {
@@ -80,7 +81,7 @@
 
 
 <div class="container-fluid" id="urun">
-    <div class="flex-container">
+    <div class="flex-container col-lg-12">
         @foreach (var item in (List<Ürünler>)ViewBag.UrunListesi)
         {
             <div class="flex-item ">
@@ -94,11 +95,8 @@
                     </p>
                 </div>
             </div>
-
         }
-    </div>
-
-  
+    </div>  
 </div>
 
 
@@ -136,8 +134,6 @@
     }
 
    
-
-    
 
 </script>
 

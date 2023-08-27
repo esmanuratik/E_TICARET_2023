@@ -42,16 +42,7 @@ namespace E_TICARET_2023.Controllers
             ViewBag.Kategori = db.Kategoriler.Find(id).KategoriAdi;
             return View(db.Ürünler.Where(x=>x.KategoriId==id).ToList());
         }
-        public ActionResult deneme()
-        {
-            //Home-Index
-            return View();
-        }
-        public ActionResult deneme2()
-        {
-            return View();
-        }
-      
+             
       
     }
 }
